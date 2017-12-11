@@ -1,31 +1,6 @@
-#include<bits/stdc++.h>
-using namespace std;
- 
-int main(){
-    int a,b, A[10010]={ 0 };
-    cin>>a>>b;
-     
-    int tmp, sum;
-    for(int i=1;i<=b;i++){
-        tmp=i;
-        sum=0;
-         
-        sum=tmp/1000;
-        tmp%=1000;
-        sum+=tmp/100;
-        tmp%=100;
-        sum+=tmp/10;
-        tmp%=10;
-        sum+=tmp;
-        sum+=i;
-        A[sum]=1;
-    }
-     
-    sum=0;
-    for(int i=a;i<=b;i++){
-        if(A[i]==0) sum+=i;
-    }
-     
-    cout<<sum;
-    return 0;
-}
+<추상화> - 홍길동
+-현재상태 : 
+-목표상태 : 
+-조건(핵심요소) 
+
+<소스코드> - 홍길동
