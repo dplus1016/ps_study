@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int a[10]={ 0 }, b[110]={ 0 }, sum=0, cnt=0, f=0;
+ 
+int dplus(int i){
+    if(f==1) return 0;
+    if(i>8) return 0;
+     
+    sum+=a[i];
+    cnt++;
+    b[a[i]]=1;
+     
+    if(cnt==7){
+        if(sum==100 and f==0){
+            f=1;
+            for(int i=0;i<101;i++) if(b[i]) cout<<i<<endl;
+            return 0;
+        }
+        else{
+            sum-=a[i];
+            cnt--;
+            b[a[i]]=0;
+             
+            dplus(i+1);
+            return 0;
+        }
+    }
+     
+    dplus(i+1);
+     
+    sum-=a[i];
+    cnt--;
+    b[a[i]]=0;
+     
+    dplus(i+1);
+     
+    return 0;
+}
+ 
+int main(){
+    for(int i=0;i<9;i++) cin>>a[i]; 
+    dplus(0);
+    return 0;
+}
