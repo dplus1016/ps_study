@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    queue<int>V,N;
+    int n;
+    cin>>n;
+     
+    V.push(n); //값
+    N.push(0); //횟수
+    
+    int value,num;
+    
+    while(1){
+        value=V.front(); //value변수의 큐의 가장 앞(front)에 있는 숫자를 불러옴
+        num=N.front();
+         
+        if(value==1){
+            cout<<num;
+            return 0;
+        }
+
+        if(value%2==0){
+            V.push(value/2);
+            N.push(num+1);
+        }
+        if(value%5==0){
+            V.push(value/5);
+            N.push(num+1);
+        }
+        V.push(value-1);
+        N.push(num+1);
+         
+        V.pop();
+        N.pop();
+    }
+}
