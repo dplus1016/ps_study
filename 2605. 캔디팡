@@ -1,48 +1,6 @@
-/* 알고리즘 - 안득하
-격자판의 블록을 순서대로 탐색 / 2중 for문
-1개의 블록을 방문할 때 마다 깊이우선탐색(dfs) 방법을 사용하여, 같은 색깔의 블록이 몇개인지를 파악
-만약, 같은 색깔의 블록이 3개 이상이면, 횟수 증가(ans++)
-방문한 블록은 이미 방문했다고 표시 / 배열 값을 0으로 변경
-격자판 탐색 시 배열 값이 0이면, 이미 탐색한 블록임으로 넘어감
-*/
+<추상화> - 홍길동
+-현재상태 : 
+-목표상태 : 
+-조건(핵심요소) 
 
-#include<bits/stdc++.h> // 안득하
-using namespace std;
- 
-int ans=0, cnt, tmp;
- 
-int candy(int i, int j, int a[9][9]){
-    if(a[i][j]==0) return 0;  // 이미 방문한 블록 리턴
-     
-    tmp=a[i][j];  // 2칸 아래의 코드 때문에
-    cnt++;  // 같은 색깔 블록 갯수
-    a[i][j]=0;  // 방문했다는 표시
-     
-    if(tmp==a[i+1][j]) candy(i+1,j,a);  // 아래쪽
-    if(tmp==a[i][j+1]) candy(i,j+1,a);  // 오른쪽
-    if(tmp==a[i-1][j]) candy(i-1,j,a);   // 위쪽
-    if(tmp==a[i][j-1]) candy(i,j-1,a);   // 왼쪽
- 
-    return 0;  
-}
-
-int main(){
-    int a[9][9];  // 격자판
-    memset(a,0,sizeof(a));  // 배열의 초기화 0으로
-     
-    for(int i=1;i<8;i++)  
-        for(int j=1;j<8;j++){
-            cin>>a[i][j];  // 격자판 초기값 입력
-        }
-
-    for(int i=1;i<8;i++)
-        for(int j=1;j<8;j++){
-            cnt=0;  // 블록 변경 시에 초기화
-            candy(i,j,a);  // 함수 호출
-            if(cnt>=3) ans++;  // 같은 색깔의 블록이 3개
-        }                                    이상일 경우, 횟수 증가
-
-    cout<<ans;
-    return 0;  
-}
-
+<소스코드> - 홍길동
