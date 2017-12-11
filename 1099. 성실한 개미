@@ -1,12 +1,9 @@
-/* 알고리즘
-
-
-
+/* 알고리즘 - 안득하
 
 
 */
 
-#include<bits/stdc++.h>
+#include<bits/stdc++.h> - 안득하
 using namespace std;
  
 int a[11][11];
