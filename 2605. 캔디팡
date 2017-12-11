@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int ans=0, cnt, tmp;
+ 
+int candy(int i, int j, int a[9][9]){
+    if(a[i][j]==0) return 0;
+     
+    tmp=a[i][j];
+    cnt++;
+    a[i][j]=0;
+     
+    if(tmp==a[i+1][j]) candy(i+1,j,a);
+    if(tmp==a[i][j+1]) candy(i,j+1,a);
+    if(tmp==a[i-1][j]) candy(i-1,j,a);
+    if(tmp==a[i][j-1]) candy(i,j-1,a);
+ 
+    return 0;   
+}
+ 
+int main(){
+    int a[9][9];
+    memset(a,0,sizeof(a));
+     
+    for(int i=1;i<8;i++){
+        for(int j=1;j<8;j++){
+            cin>>a[i][j];
+        }
+    }
+     
+    for(int i=1;i<8;i++){
+        for(int j=1;j<8;j++){
+            cnt=0;
+            candy(i,j,a);
+            if(cnt>=3) ans++;
+        }
+    }
+     
+    cout<<ans;
+    return 0;   
+}
